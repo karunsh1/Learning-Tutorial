@@ -1,6 +1,6 @@
 package com.example.test.sorting;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 
 public class SelectionSorting {
 
@@ -29,5 +29,14 @@ public class SelectionSorting {
 			arr[i] = smallerNumber;
 		}
 		return arr;
+	}
+	
+	public static int [] doQuickSorting(int [] list) {
+		
+		
+		
+		
+		return list;
+		
 	}
 }
