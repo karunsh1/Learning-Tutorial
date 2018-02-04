@@ -3,12 +3,18 @@ package com.example.test.sorting;
 
 
 public class SelectionSorting {
-
+    public static int [] arr = { 20, 10, -7, -3, 60, 2 };
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] arr1 = { 20, 10, -7, -3, 60, 2 };
-		int[] sortedArr = doSelectionSort(arr1);
-		for (int i : sortedArr) {
+	
+		int[] sortedBySelectionArr = doSelectionSort(arr);
+		
+		int[] sortedByQuickArr = doQuickSort(arr, 0, arr.length-1);
+		for (int i : sortedBySelectionArr) {
+			System.out.print(" " + i);
+		}
+		
+		for (int i : sortedByQuickArr) {
 			System.out.print(" " + i);
 		}
 	}
@@ -31,12 +37,35 @@ public class SelectionSorting {
 		return arr;
 	}
 	
-	public static int [] doQuickSorting(int [] list) {
+
+	public static int doPartition(int [] arr, int start, int end){
 		
-		
-		
-		
-		return list;
+		int pivot = arr[end];
+		int pIndex = start;
+		for(int i = start; i <= end; i++ ){
+			if(arr[i]<= pivot){
+				swapArr(i,pIndex);
+				pIndex++;	
+			}			
+		}
+		swapArr(pIndex, end);
+		return pIndex;
+	}
+	public static int [] doQuickSort(int [] arr, int start, int end){
+		if(start > end){
+			int pIndex = doPartition(arr, start, end);
+			doQuickSort(arr, start, pIndex);
+			doPartition(arr,pIndex+1, end);
+		}
+		 return arr;
+	}
+
+	private static void swapArr(int i, int j) {
+		// TODO Auto-generated method stub
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] =  temp;
+
 		
 	}
 }
