@@ -11,14 +11,15 @@ public class StringCount {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter No. of lines");
 		int noOfLines = input.nextInt();
+		input.nextLine();
 		ArrayList<String> allLine = new ArrayList<String>();
 		System.out.printf("Enter the pragraph of %d  lines \n ", noOfLines);
-		while (noOfLines >= 0) {
+		while (noOfLines > 0) {
 			String line = input.nextLine();
 			allLine.add(line);
 			noOfLines--;
 		}
-		allLine.remove(0);
+		//allLine.remove(0);
 		System.out.println(allLine.size());
 
 		System.out.println("Select the grams from 1 or 2 or 3");
