@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="parentTriangle" class="com.spring.demo.tutorial12.Traingle12" scope = "singleton">
+		<!-- <property name="pointA" ref="pointA"></property> -->
+		<property name="points">
+			<list>
+				<ref bean="pointA" />
+				
+			</list>
+		</property>
+	</bean>
+	<bean id="triangleID" class="com.spring.demo.tutorial12.Traingle12"
+		parent="parentTriangle">
+		<!-- <property name="type" value = "Equilateral"></property> -->
+		<!-- <constructor-arg index = "0" value = "Equilateral"></constructor-arg> 
+			<constructor-arg index = "3" value = "30"></constructor-arg> -->
+		<!-- <property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property> -->
+		<property name="points">
+			<list >
+				<ref bean="pointC" />
+			</list>
+		</property>
+
+	</bean>
+	<bean id="triangleID1" class="com.spring.demo.tutorial12.Traingle12"
+		parent="parentTriangle">
+		<!-- <property name="type" value = "Equilateral"></property> -->
+		<!-- <constructor-arg index = "0" value = "Equilateral"></constructor-arg> 
+			<constructor-arg index = "3" value = "30"></constructor-arg> -->
+		<property name="points">
+			<list >
+				<ref bean="pointB" />
+			</list>
+		</property>
+
+
+	</bean>
+	<bean id="pointA" class="com.spring.demo.tutorial12.Point12">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="pointB" class="com.spring.demo.tutorial12.Point12">
+		<property name="x" value="-25"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="pointC" class="com.spring.demo.tutorial12.Point12">
+		<property name="x" value="0"></property>
+		<property name="y" value="20"></property>
+	</bean>
+
+
+
+
+
+</beans>

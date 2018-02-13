@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="triangleID" class="com.spring.demo.tutorial10.Traingle10"
+		name="triangle-name" autowire = "byName">
+		<!-- <property name="type" value = "Equilateral"></property> -->
+		<!-- <constructor-arg index = "0" value = "Equilateral"></constructor-arg> 
+			<constructor-arg index = "3" value = "30"></constructor-arg> -->
+		
+
+	</bean>
+	<bean id="pointA" class="com.spring.demo.tutorial10.Point10">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="pointB" class="com.spring.demo.tutorial10.Point10">
+		<property name="x" value="-25"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="pointC" class="com.spring.demo.tutorial10.Point10">
+		<property name="x" value="0"></property>
+		<property name="y" value="20"></property>
+	</bean>
+	<alias name="triangleID" alias="triangle-alias" />
+
+
+
+
+</beans>
