@@ -11,7 +11,7 @@ public class DrawingApp12 {
 		// TODO Auto-generated method stub
 		
 		ApplicationContext context = new FileSystemXmlApplicationContext("/spring12.xml");
-		Traingle12 triangleInstance = (Traingle12) context.getBean("parentTriangle");
+		Traingle12 triangleInstance = (Traingle12) context.getBean("triangleID");
 		triangleInstance.draw();
 	}
 

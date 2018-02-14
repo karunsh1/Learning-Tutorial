@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	<bean id="triangleID" class="com.spring.demo.tutorial15.Triangle15">
+		<!-- <property name="type" value = "Equilateral"></property> -->
+		<!-- <constructor-arg index = "0" value = "Equilateral"></constructor-arg> 
+			<constructor-arg index = "3" value = "30"></constructor-arg> -->
+		<property name="pointA">
+			<ref bean="point1" />
+		</property>
+		<property name="pointB" ref="point2"></property>
+		<property name="pointC" ref="point3"></property>
+	</bean>
+	<bean id="point1" class="com.spring.demo.tutorial15.Point15">
+		<property name="x" value="${pointA.pointX}"></property>
+		<property name="y" value="${pointA.pointY}"></property>
+	</bean>
+	<bean id="point2" class="com.spring.demo.tutorial15.Point15">
+		<property name="x" value="-20"></property>
+		<property name="y" value="0"></property>
+	</bean>
+	<bean id="point3" class="com.spring.demo.tutorial15.Point15">
+		<property name="x" value="0"></property>
+		<property name="y" value="20"></property>
+	</bean>
+	<bean class ="com.spring.demo.tutorial15.BeanPostFactoryProcessor">
+	</bean >
+	<bean class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+	<property name="locations" value ="pointsConfig.propertyName"></property>
+	</bean>
+	<!-- <bean class ="com.spring.demo.tutorial15.DisplayBeanProcessor15">
+	
+	</bean> -->
+
+
+</beans>
