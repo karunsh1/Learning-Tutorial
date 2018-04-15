@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- <bean id="HandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" 
+		/> -->
+	<mvc:resources location="/WEB-INF/" mapping="/resources/**"></mvc:resources>
+	<context:component-scan base-package="com.spring.mvc1" />
+	<context:component-scan base-package="com.student.admissioncontroller" />
+	<mvc:annotation-driven />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/admissionForm.html" />
+			<bean
+				class="com.student.admissioncontroller.DayOfWeekBasedAceessInterceptor"></bean>
+		</mvc:interceptor>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="siteLanguage"></property>
+		</bean>
+		<bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="siteTheme"></property>
+		</bean>
+
+	</mvc:interceptors>
+
+	<!-- No need to define bean for controller beacuse we have defined the annotation 
+		@controller -->
+
+	<!-- <bean id="/welcome.html" class="com.spring.mvc1.HelloController" /> -->
+
+	<bean id="VieResolverClass"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/WEB-INF/studentmessages"></property>
+	</bean>
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver" />
+	<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="theme-"></property>
+	</bean>
+	<bean id="themeResolver"
+		class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="green"></property>
+	</bean>
+
+</beans>
