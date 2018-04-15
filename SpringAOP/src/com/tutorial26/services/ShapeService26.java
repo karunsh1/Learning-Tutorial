@@ -3,7 +3,6 @@ package com.tutorial26.services;
 import com.tutorial26.model.Circle26;
 import com.tutorial26.model.Triangle26;
 
-import javafx.scene.shape.Circle;
 
 public class ShapeService26 {
 	private Circle26 circle;
