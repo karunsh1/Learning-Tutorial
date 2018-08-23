@@ -34,7 +34,7 @@
 	<!-- No need to define bean for controller beacuse we have defined the annotation 
 		@controller -->
 
-	<!-- <bean id="/welcome.html" class="com.spring.mvc1.HelloController" /> -->
+	<!-- <bean id="/welcome.html" class="com.spring.mvc1.HelloController" />  -->
 
 	<bean id="VieResolverClass"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

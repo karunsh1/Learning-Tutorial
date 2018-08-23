@@ -4,16 +4,16 @@ public class Waiting_NotifyMain {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		//Wait_NotifyExampleLowLevelSynch processor = new Wait_NotifyExampleLowLevelSynch();
-		//Reentrants_runner runner = new Reentrants_runner();
-		Reentrants_runner2 runner = new Reentrants_runner2();
+		Wait_NotifyExampleLowLevelSynch processor = new Wait_NotifyExampleLowLevelSynch();
+		Reentrants_runner runner = new Reentrants_runner();
+		//Reentrants_runner2 runner = new Reentrants_runner2();
 		Thread t1 = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				try {
-					//processor.produce();
-					runner.firstThread();
+					processor.produce();
+					//runner.firstThread();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -25,8 +25,8 @@ public class Waiting_NotifyMain {
 			@Override
 			public void run() {
 				try {
-					//processor.consume();
-					runner.secondThread();
+					processor.consume();
+					//runner.secondThread();
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

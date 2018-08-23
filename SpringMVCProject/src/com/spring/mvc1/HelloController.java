@@ -36,7 +36,7 @@ public class HelloController extends AbstractController {
  * 
  */
 @Controller
-/*@RequestMapping("/greet")*/
+@RequestMapping("/greet")
 public class HelloController {
 	
 	//@RequestMapping("/welcome")
